@@ -16,32 +16,84 @@ class Comment
   include JSON::Serializable
   property user : String
   property com : String
+end
+
+class COMMENTS
+  JSON.mapping({cm: Array(Comment?)})
+end
 
 class FILM
   include JSON::Serializable
   property name : String
   property rev : Int32
   property revs : Int32
-  property comments : Array(Comment?)
+  property comments : COMMENTS?
+end
 
 class Movies
-  include JSON::Serializable
   JSON.mapping({fm: Array(FILM?)})
+end
 
 class User
   include JSON::Serializable
 
   property name : String
   property mv : Movies?
-
-  @[JSON::Field(key: "uid")]
-  property userID : Int32
+  property uid : Int32
 end
 
-class database
+class Users
+  JSON.mapping({u: Array(User?)})
+end
+
+class DATA
   include JSON::Serializable
-  property user : User?
+  property users : Users?
   property mv : Movies?
 end
 
-data = database.from_json(%<{"user": {"name": "paul", "userID": 1, "mv": {[{"name": "The Avengers", "rev": 9, "revs": 1, "comments":["usr": "paul", "com": "GREAT"]}]}}, "mv": {"a":1, "b": "2"}}>)
+
+data = DATA.from_json(%({
+	"users": {
+		"u": [{
+			"name": "paul",
+			"uid": 1,
+			"mv": {
+				"fm": [{
+					"name": "The Avengers",
+					"rev": 9,
+					"revs": 1,
+					"comments": {
+						"cm": [{
+							"user": "paul",
+							"com": "GREAT"
+						}]
+					}
+
+				}]
+			}
+		}]
+	},
+	"mv": {
+		"fm": [{
+			"name": "The Avengers",
+			"rev": 9,
+			"revs": 1,
+			"comments": {
+				"cm": [{
+					"user": "paul",
+					"com": "GREAT"
+				}, {
+					"user": "marcus",
+					"com": "Too Much"
+				}]
+			}
+
+		}]
+	}
+}))
+
+
+#puts data["users"]
+value = JSON.parse(data.to_json)
+puts value["users"]["u"]
