@@ -1,6 +1,12 @@
-# TODO: Write documentation for `Meth`
-module Meth
-  VERSION = "0.1.0"
 
-  # TODO: Put your code here
+require "kemal"
+
+module Meth
+
+  get "/" do
+    render "src/views/home.ecr", "src/views/layouts/layout.ecr"
+  end
+
+  Kemal.config.port = 8000
+  Kemal.run
 end
