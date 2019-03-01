@@ -95,16 +95,26 @@ data = DATA.from_json(%({
 
 
 #puts data["users"]
-puts data
+#puts data
 value = JSON.parse(data.to_json)
 #u = JSON.parse("{"user": "Jin", "com": "dissapointed"}")
-u = JSON.build do |json|
-  json.object do
-    json.field "user", "Jin"
-    json.field "com", "dissapointed"
-  end
-end
-value = value["mv"]["fm"]["comments"].push(u)
-puts value
+#u = JSON.build do |json|
+#  json.object do
+#    json.field "user", "Jin"
+#    json.field "com", "dissapointed"
+#  end
+#end
+#u = Comment.from_json(%({
+#	"user": "Jin",
+#	"com": "dissapointed"
+#}))
+u = JSON.parse("{\"user\": \"Jin\", \"com\": \"dissapointed\"}")
+puts u
+#value = value["mv"]["fm"]["comments"]
+#value["mv"]["fm"][0]["comments"].json_array do |array|
+#         array << u
+#end
+puts value["mv"]["fm"][0]["comments"]["cm"].as_a.push(u)
+#puts value["mv"]["fm"]["comments"]
 #value["mv"]["fm"]["comments"].push({"user": "Jin", "com": "dissapointed"})
 #puts value["mv"]["fm"]["comments"]
