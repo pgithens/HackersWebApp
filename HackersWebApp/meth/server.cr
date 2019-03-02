@@ -1,15 +1,12 @@
-require "http/server"
-require "./database"
+# require "http/server"
+require "kemal"
 
-server = HTTP::Server.new do |context|
-  context.response.content_type = "text/plain"
-  context.response.print "Hello world! The time is #{Time.now}"
-  #db =  database.data
-  data = Comment.from_json(%({"user": "Jin", "com": "dissapointed"}))
-  value = JSON.parse(data.to_json)
-  context.response.print value
+
+
+get "/movies/api/:id" do |env|
+    env.response.content_type = "application/json"
+    puts env.response.headers["Content-Type"]
+    {"movie": {"title": "National Treasure"}}.to_json
 end
 
-address = server.bind_tcp 8080
-puts "Listening on http://#{address}"
-server.listen
+Kemal.run
