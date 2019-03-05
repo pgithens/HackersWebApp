@@ -5,8 +5,8 @@ authors:
   - your-name-here <your-email-here>
 
 targets:
-  server:
-    main: src/server.cr
+  meth:
+    main: src/meth.cr
 
 crystal: 0.27.2
 
