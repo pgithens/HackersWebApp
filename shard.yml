@@ -6,7 +6,7 @@ authors:
 
 targets:
   meth:
-    main: src/meth.cr
+    main: src/server.cr
 
 crystal: 0.27.2
 
