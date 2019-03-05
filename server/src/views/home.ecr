@@ -1,3 +1,29 @@
 <h1>Movies</h1>
-<input type="text" />
-<button >Send Request</button>
+<input id="movieId" type="text" />
+<button onclick="getMovie()">Send Request</button>
+
+<p id="movieDetails"></p>
+
+<script>
+  function getMovie() {
+    // shouldnt be hardcoded, quick and dirty solution for now
+    var url = "localhost:3000/movies/api/" + document.getElementById("movieId").value
+    httpGetAsync(url, displayMovieDetails)
+  }
+
+  function displayMovieDetails(movieDetails) {
+    document.getElementById("movieDetails").innerHTML = movieDetails
+  }
+
+  function httpGetAsync(theUrl, callback) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+              callback(xmlHttp.responseText);
+          else
+            callback("request failed. couldn't retrieve movie with that id")
+      }
+      xmlHttp.open("GET", theUrl, true); // true for asynchronous
+      xmlHttp.send(null);
+  }
+</script>
