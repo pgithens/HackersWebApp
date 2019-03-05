@@ -95,12 +95,26 @@ get "/" do |env|
   u.to_json
 end
 
-get "/movies/api/" do |env|
+get "/:id" do |env|
   #"/movies/api/:id"
-    #env.response.content_type = "application/json"
+    env.response.content_type = "application/json"
     #puts env.response.headers["Content-Type"]
     #{"movie": {"title": "National Treasure"}}.to_json
-    value["mv"]["fm"][0]["comments"]["cm"].to_json
+    id = env.params.url["id"]
+    #value["mv"]["fm"][0]["comments"][id].to_json    # the get request for a string in the json
+    value["mv"]["fm"][0]["comments"]["cm"][id.to_i].to_json
+end
+
+get "/movie/comments/" do |env|
+  env.response.content_type = "application/json"
+  value["mv"]["fm"][0]["comments"]["cm"].to_json
+end
+
+put "/" do |env|
+  #user = User.from_json env.request.body.not_nil!
+  #{username: user.username, password: user.password}.to_json
+  value["mv"]["fm"][0]["comments"]["cm"].as_a.push(u)
+  value["mv"]["fm"][0]["comments"]["cm"].to_json
 end
 
 Kemal.run
