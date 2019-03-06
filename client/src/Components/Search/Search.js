@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import './Search.css'
 
-const baseURL = "http://meth-server.herokuapp.com"
+const baseURL = "https://meth-server.herokuapp.com"
 
 class Search extends Component {
   constructor() {
