@@ -31,7 +31,7 @@ DB.open DATABASE_STRING do |db|
     db.exec "create table movies (title varchar(30), overview varchar(300), budget bigint, revenue bigint, runtime float, tagline varchar(50))"
 
     csv.each do |x|
-      db.exec "insert into movies values (?, ?, ?, ?, ?, ?)", x[17], x[7], safeConvertStringToInt64(x[0]), safeConvertStringToInt64(x[12]), safeConvertStringToFloat(x[13]), x[16]
+      db.exec "insert into movies values (?, ?, ?, ?, ?, ?)", x[17].downcase, x[7], safeConvertStringToInt64(x[0]), safeConvertStringToInt64(x[12]), safeConvertStringToFloat(x[13]), x[16]
       puts x[17]
     end
 end
