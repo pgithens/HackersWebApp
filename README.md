@@ -30,3 +30,6 @@ TODO: Write development instructions here
 
 - [your-name-here](https://github.com/your-github-user) - creator and maintainer
 >>>>>>> 9fc6281a1c5b64e460444604b75e001dededb4ae
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/00011869-019c-4220-8453-3851a1a21e4b/deploy-status)](https://app.netlify.com/sites/multimediaentertainmenttierheuristic/deploys)
