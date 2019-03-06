@@ -11,20 +11,22 @@ class Search extends Component {
     this.state = {
       movieData: {
         title: ''
-      }
+      },
+      status: "loading",
+      errorMessage: ""
     };
     this.getMovie = this.getMovie.bind(this);
 
   }
 
   getMovie () {
-    let searchTerm = document.getElementById("searchQuery").value;
-    searchTerm = searchTerm.replace(/\s+/g, '_').toLowerCase();
-    console.log(searchTerm);
+    let inputValue = document.getElementById("searchQuery").value;
+    let searchTerm = inputValue.replace(/\s+/g, '_').toLowerCase();
     axios.get(`${baseURL}/movies/search/${searchTerm}`)
       .then(res => {
-        console.log(res.data)
+        console.log(res.data);
         this.setState({
+          status: "success",
           movieData: {
             title: res.data.title,
             overview: res.data.overview,
@@ -34,13 +36,20 @@ class Search extends Component {
             tagline: res.data.tagline
           }
         });
+      })
+      .catch(error => {
+          console.log(error);
+          this.setState({
+            status: "failure",
+            errorMessage: `${inputValue} not found in database!`
+          });
       });
   }
 
   render () {
     const movieData = this.state.movieData;
     let movieInfo;
-    if (movieData.title !== '') {
+    if (this.state.status === "success") {
       movieInfo =         <div className="movieInfo">
                 <h1>{ movieData.title.toUpperCase() }</h1>
                 <h2>{ movieData.tagline }</h2>
@@ -49,15 +58,16 @@ class Search extends Component {
                 <h3>Revenue: ${ movieData.revenue }</h3>
                 <h3>Runtime: { movieData.runtime } minutes</h3>
               </div>
-    } else {
+    } else if (this.state.status === "loading") {
       movieInfo = <div></div>
+    } else if (this.state.status === "failure"){
+      movieInfo = <div><h1>{ this.state.errorMessage }</h1></div>
     }
     return (
       <section id="search" className="section search">
         <h2>Search for Multimedia:</h2>
         <input id="searchQuery" type="text" placeholder="Movie title to search" />
         <button type="submit" onClick={this.getMovie}>Submit Request</button>
-
 
         { movieInfo }
       </section>

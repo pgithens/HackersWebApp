@@ -4,7 +4,7 @@ require "json"
 require "db"
 require "mysql"
 
-
+require "./config"
 
 # class Comment
 #   include JSON::Serializable
@@ -104,7 +104,6 @@ get "/" do |env|
 end
 
 get "/movies/search/:title" do |env|
-  #"/movies/api/:id"
     env.response.headers["Access-Control-Allow-Origin"] = "*"
     env.response.content_type = "application/json"
     #puts env.response.headers["Content-Type"]
@@ -113,7 +112,25 @@ get "/movies/search/:title" do |env|
     #value["mv"]["fm"][0]["comments"][id].to_json    # the get request for a string in the json
     # value["mv"]["fm"][0]["comments"]["cm"][id.to_i].to_json
     title = env.params.url["title"]
-    JSON.parse("{\"user\": \"Jin\", \"com\": \"dissapointed\"}").to_json
+    title = title.gsub("_", " ")
+    response = ""
+    DB.open DATABASE_STRING do |db|
+      db.query "select * from movies where title='#{title}'" do |rs|
+        rs.each do
+          response = JSON.build do |json|
+            json.object do
+              json.field "title", rs.read(String)
+              json.field "overview", rs.read(String)
+              json.field "budget", rs.read(Int64)
+              json.field "revenue", rs.read(Int64)
+              json.field "runtime", rs.read(Float)
+              json.field "tagline", rs.read(String)
+            end
+          end
+        end
+      end
+    end
+    response
 end
 #
 # get "/movie/comments/" do |env|

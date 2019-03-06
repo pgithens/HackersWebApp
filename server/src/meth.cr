@@ -115,19 +115,20 @@ get "/movies/search/:title" do |env|
     title = title.gsub("_", " ")
     response = ""
     DB.open DATABASE_STRING do |db|
-      db.query "select * from movies where title='#{title}'" do |rs|
-        rs.each do
-          response = JSON.build do |json|
-            json.object do
-              json.field "title", rs.read(String)
-              json.field "overview", rs.read(String)
-              json.field "budget", rs.read(Int64)
-              json.field "revenue", rs.read(Int64)
-              json.field "runtime", rs.read(Float)
-              json.field "tagline", rs.read(String)
-            end
+      begin
+        results = db.query_one "select * from movies where title='#{title}'", as: {String, String, Int64, Int64, Float, String}
+        response = JSON.build do |json|
+          json.object do
+            json.field "title", results[0]
+            json.field "overview", results[1]
+            json.field "budget", results[2]
+            json.field "revenue", results[3]
+            json.field "runtime", results[4]
+            json.field "tagline", results[5]
           end
         end
+      rescue ex
+        env.response.status_code = 500
       end
     end
     response

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+directory for the web app project
+
+=======
 # meth
 
 TODO: Write a description here
@@ -25,3 +29,4 @@ TODO: Write development instructions here
 ## Contributors
 
 - [your-name-here](https://github.com/your-github-user) - creator and maintainer
+>>>>>>> 9fc6281a1c5b64e460444604b75e001dededb4ae
