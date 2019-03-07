@@ -8,6 +8,8 @@
   width: 80%;
   background-color: #7f7f7f;
   min-height: 500px;
+  border-radius: 20px;
+  border: 1px solid white;
 }
 
 .imgWrapper {
@@ -19,6 +21,8 @@
   margin-top: 28px;
   width: 300px;
   height: 444px;
+  border-radius: 10px;
+  border: 1px solid white;
 }
 
 .imgWrapper > img::after {
