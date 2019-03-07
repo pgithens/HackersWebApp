@@ -45,7 +45,7 @@ class Search extends Component {
             errorMessage: `${inputValue} not found in database!`
           });
       });
-    axios.get(`http://omdbapi.com/?apikey=64ba525c&t=${searchTerm}`)
+    axios.get(`https://omdbapi.com/?apikey=64ba525c&t=${searchTerm}`)
       .then(res => {
         console.log(res)
         this.setState({ poster: res.data.Poster });
