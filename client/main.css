@@ -1,0 +1,177 @@
+body {
+  background-color: #fcb07e;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+#search {
+  color: white;
+  margin-top: 30vh;
+  transition: all .35s ease-in;
+}
+
+#search.loaded {
+    margin-top: 10vh;
+}
+
+.title {
+  font-size: 4em;
+}
+
+.movieInput {
+  margin-bottom: 10px;
+  border: none;
+  height: 100px;
+  text-align: center;
+  width: 30%;
+  font-size: 2em;
+}
+
+.movieButton {
+  margin: 0 auto;
+  width: 100px;
+  border: none;
+  width: 20%;
+  height: 60px;
+  text-align: center;
+  background-color: white;
+}
+
+.movieInfo {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  width: 80%;
+  background-color: #7ecafc;
+  min-height: 500px;
+  border-radius: 20px;
+  border: 1px solid white;
+  transition: all .35s ease-in;
+  transition: background-color 0.8 ease-in;
+}
+
+.movieInfo.error {
+  background-color: #FC877E;
+}
+
+.imgWrapper {
+  width: 40%;
+  float: left;
+}
+
+.imgWrapper > img {
+  margin-top: 28px;
+  width: 300px;
+  height: 444px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.imgWrapper > img::after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.movieText {
+  float: left;
+  width: 60%;
+  text-align: center;
+  height: 444px;
+  margin-top: 28px;
+}
+
+.failMessage {
+  font-size: 72px;
+}
+
+.movieInfo.error img {
+  width: 400px;
+  border-radius: 4px;
+  border: 1px solid white;
+}
+
+.resetButton {
+  width: 300px;
+  height: 60px;
+  border: none;
+  background-color: white;
+  font-size: 1.5em;
+}
+
+.loader {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.loader div {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  width: 13px;
+  background: #fff;
+  animation: loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.loader div:nth-child(1) {
+  left: 6px;
+  animation-delay: -0.24s;
+}
+.loader div:nth-child(2) {
+  left: 26px;
+  animation-delay: -0.12s;
+}
+.loader div:nth-child(3) {
+  left: 45px;
+  animation-delay: 0;
+}
+@keyframes loader {
+  0% {
+    top: 6px;
+    height: 51px;
+  }
+  50%, 100% {
+    top: 19px;
+    height: 26px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 2em;
+  }
+
+  #search {
+    margin-top: 15vh;
+  }
+
+  #search.loaded {
+      margin-top: 5vh;
+  }
+
+  .movieInput {
+    width: 80%;
+  }
+
+  .movieButton {
+    width: 60%;
+  }
+
+  .movieText {
+    float: none;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .imgWrapper {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .imgWrapper > img {
+    margin: 0;
+    height: auto;
+  }
+}
