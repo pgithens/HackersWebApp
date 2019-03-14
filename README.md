@@ -4,9 +4,9 @@ An application built to serve up information on movies at your fingertips. Kind 
 
 Built with Elm on the frontend and Crystal on the backend.
 
-[Live instance of frontend hosted by netlify.](hackerelm.netlify.com)
+[Live instance of frontend hosted by netlify.](https://hackerelm.netlify.com)
 
-[Live instance of backend hosted on heroku.](meth-server.herokuapp.com)
+[Live instance of backend hosted on heroku.](https://meth-server.herokuapp.com)
 
 ## Contributors
 
