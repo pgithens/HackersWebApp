@@ -4,25 +4,9 @@ An application built to serve up information on movies at your fingertips. Kind 
 
 Built with Elm on the frontend and Crystal on the backend.
 
-## Installation
+[Live instance of frontend hosted by netlify.](hackerelm.netlify.com)
 
-TODO: Write installation instructions here
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
-
-## Contributing
-
-1. Fork it (<https://github.com/your-github-user/meth/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+[Live instance of backend hosted on heroku.](meth-server.herokuapp.com)
 
 ## Contributors
 
