@@ -28,7 +28,7 @@ TODO: Write development instructions here
 
 - [Marcus Schimizzi](https://github.com/schimizzimj) - creator and maintainer
 - [Paul Githens](https://github.com/pgithens) - co-creator
-- [Jin Kim] (https://github.com/jinkim172) - co-creator
-- [Justin Peek] (https://github.com/peekmeister) - co-creator
+- [Jin Kim](https://github.com/jinkim172) - co-creator
+- [Justin Peek](https://github.com/peekmeister) - co-creator
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/00011869-019c-4220-8453-3851a1a21e4b/deploy-status)](https://app.netlify.com/sites/multimediaentertainmenttierheuristic/deploys)
