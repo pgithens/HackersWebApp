@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-directory for the web app project
+# Multimedia Entertainment Tier Heuristic
 
-=======
-# meth
+An application built to serve up information on movies at your fingertips. Kind of like IMDb, but with way less features, information, and functionality.
 
-TODO: Write a description here
+Built with Elm on the frontend and Crystal on the backend.
 
 ## Installation
 
@@ -28,8 +26,9 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [your-name-here](https://github.com/your-github-user) - creator and maintainer
->>>>>>> 9fc6281a1c5b64e460444604b75e001dededb4ae
-
+- [Marcus Schimizzi](https://github.com/schimizzimj) - creator and maintainer
+- [Paul Githens](https://github.com/pgithens) - co-creator
+- [Jin Kim] (https://github.com/jinkim172) - co-creator
+- [Justin Peek] (https://github.com/peekmeister) - co-creator
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/00011869-019c-4220-8453-3851a1a21e4b/deploy-status)](https://app.netlify.com/sites/multimediaentertainmenttierheuristic/deploys)
